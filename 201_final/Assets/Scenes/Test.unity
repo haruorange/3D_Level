@@ -1115,12 +1115,17 @@ PrefabInstance:
     - target: {fileID: 5705928403985459727, guid: fb302b36df5361d44b22d79c18b3cbf0,
         type: 3}
       propertyPath: m_moveSpeed
-      value: 3.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5705928403985459727, guid: fb302b36df5361d44b22d79c18b3cbf0,
         type: 3}
       propertyPath: m_controlMode
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705928403985459727, guid: fb302b36df5361d44b22d79c18b3cbf0,
+        type: 3}
+      propertyPath: m_turnSpeed
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb302b36df5361d44b22d79c18b3cbf0, type: 3}
@@ -2716,7 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Y_ANGLE_MIN: 15
-  Y_ANGLE_MAX: 25
+  Y_ANGLE_MAX: 55
   character: {fileID: 599326492}
   distance: -5
   currentPushDistance: 1
