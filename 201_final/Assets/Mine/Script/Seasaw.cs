@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Seasaw : MonoBehaviour
 {
-	Rigidbody thisRigdbody;
+	Rigidbody thisRigidbody;
+	public bool isRotated = false;
     // Start is called before the first frame update
     void Start()
     {
-		thisRigdbody = gameObject.GetComponent<Rigidbody>();
+		thisRigidbody = gameObject.GetComponent<Rigidbody>();
+		//rotationY = transform.localRotation.y;
     }
 
 	// Update is called once per frame
@@ -18,11 +20,11 @@ public class Seasaw : MonoBehaviour
 
 		if (TheWorld.isTheWorld)
 		{
-			thisRigdbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+			thisRigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		}
 		else if (!TheWorld.isTheWorld)
 		{
-			thisRigdbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+			thisRigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 		}
 	}
 
@@ -30,7 +32,17 @@ public class Seasaw : MonoBehaviour
 	{
 		if(other.tag == "Player")
 		{
-			transform.localRotation = Quaternion.identity;
+			if (isRotated)
+			{
+				transform.localRotation = Quaternion.Euler(0, 90, 0);
+			}
+			else
+			{
+				transform.localRotation = Quaternion.Euler(0, 0, 0);
+			}
+			thisRigidbody.velocity = Vector3.zero;
+			thisRigidbody.angularVelocity = Vector3.zero;
+
 		}
 	}
 
